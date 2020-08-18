@@ -1,0 +1,11 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="fapiao">
+            <file>tests/BasicTest.php</file>
+            <file>tests/TestXml.php</file>
+            <file>tests/TestDownload.php</file>
+            <file>tests/TestSend.php</file>
+            <file>tests/testSendCheck.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>
