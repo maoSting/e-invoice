@@ -120,7 +120,7 @@ class Basic {
         try {
             $this->registerApi(__FUNCTION__, func_get_args());
             $response = RequestTool::post($url, $data, $headers);
-            $result = DataTransform::xml2array($response);
+            $result   = DataTransform::xml2array($response);
 
             return $result;
         } catch (InvalidResponseException $e) {
@@ -144,9 +144,9 @@ class Basic {
     protected function _decrypt($xml = [], $key) {
         $content = "";
         if ($xml['Data']['dataDescription']['zipCode'] == 0) {
-            $content = openssl_decrypt($xml['Data']['content'], 'des-ede3', $key);
+            $content = mcrypt_decrypt(MCRYPT_TripleDES, $key, base64_decode($xml['Data']['content']), 'ecb');
         } else {
-            $content = openssl_decrypt(gzdecode(base64_decode($xml['Data']['content'])), 'des-ede3', $key);
+            $content = mcrypt_decrypt(MCRYPT_TripleDES, $key, zlib_decode(base64_decode($xml['Data']['content'])), 'ecb');
         }
         if ($content) {
             $data = simplexml_load_string($content);

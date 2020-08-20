@@ -21,7 +21,7 @@ class TestDownload extends BasicTest {
                 'FPQQLSH'  => 'P10000011597730600000',
                 'DSPTBM'   => $this->_config['data']['DSPTBM'],
                 'NSRSBH'   => $this->_config['data']['NSRSBH'],
-                'PDF_XZFS' => 2,
+                'PDF_XZFS' => 3,
 
             ];
 
