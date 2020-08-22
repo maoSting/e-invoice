@@ -149,9 +149,11 @@ class Basic {
             $content = mcrypt_decrypt(MCRYPT_TripleDES, $key, zlib_decode(base64_decode($xml['Data']['content'])), 'ecb');
         }
         if ($content) {
-            $data = simplexml_load_string($content);
-            $json = json_encode($data);
-            $rs   = json_decode($json, true);
+            // BEL 控制字符
+            $content = preg_replace('/\x07/u', '', $content);
+            $data    = simplexml_load_string($content);
+            $json    = json_encode($data);
+            $rs      = json_decode($json, true);
 
             $xml['Data']['content'] = $rs;
         }
