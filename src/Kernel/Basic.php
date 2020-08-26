@@ -151,6 +151,7 @@ class Basic {
         if ($content) {
             // BEL 控制字符
             $content = preg_replace('/\x07/u', '', $content);
+            $content = preg_replace('/\x05/u', '', $content);
             $data    = simplexml_load_string($content);
             $json    = json_encode($data);
             $rs      = json_decode($json, true);
