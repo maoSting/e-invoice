@@ -33,7 +33,17 @@ class Core extends Basic {
         $config['requestTime']         = date('Y-m-d H:i:s s');
         $config['dataExchangeId']      = $this->config['userName'] . date('Ymd') . rand(100000000, 999999999);
 
-        $xml     = new Xml();
+        $xml = new Xml();
+
+        // 使用 优惠政策标识
+        if ($FPKJXX_XMXXS['YHZCBS'] == 1) {
+            if (!isset($FPKJXX_XMXXS['LSLBS'])) {
+                $FPKJXX_XMXXS['LSLBS'] = "1";
+            }
+            if (!isset($FPKJXX_XMXXS['ZZSTSGL'])) {
+                $FPKJXX_XMXXS['ZZSTSGL'] = "免税";
+            }
+        }
         $content = $xml->buildFpkjxx($FPKJXX_FPTXX, $FPKJXX_XMXXS, $FPKJXX_DDXX);
 
         $encrypt = $this->_encrypt($content, $this->key);
