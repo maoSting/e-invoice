@@ -17,13 +17,13 @@ class TestIssue extends BasicTest {
             $mainLib = new Core($this->_config);
 
             $FPKJXX_FPTXX = [
-                'FPQQLSH'    => sprintf("%s%s", $this->_config['data']['DSPTBM'], time().'000'),
+                'FPQQLSH'    => sprintf("%s%s", $this->_config['data']['DSPTBM'], time() . '000'),
                 'DSPTBM'     => $this->_config['data']['DSPTBM'],
                 'NSRSBH'     => $this->_config['data']['NSRSBH'],
                 'NSRMC'      => $this->_config['data']['NSRMC'],
                 'DKBZ'       => 0,
                 'KPXM'       => '其他住房租赁服务',
-                'BMB_BBH'    => '3040502020199',
+                'BMB_BBH'    => '35.0',
                 'XHF_NSRSBH' => $this->_config['config']['taxpayerId'],
                 'XHFMC'      => $this->_config['data']['XHFMC'],
                 'XHF_DZ'     => '云锦路500号',
@@ -33,7 +33,7 @@ class TestIssue extends BasicTest {
                 'KPLX'       => '1',
                 'CZDM'       => '10',
                 'QD_BZ'      => '0',
-                'KPHJJE'     => 3200.00,
+                'KPHJJE'     => 0.01,
                 'HJBHSJE'    => 0,
                 'HJSE'       => 0,
 
@@ -44,11 +44,11 @@ class TestIssue extends BasicTest {
                     'XMMC'   => '*经营租赁*房租',
                     'HSBZ'   => '1',
                     'FPHXZ'  => '0',
-                    'XMDJ'   => 3200.00,
-                    'SPBM'   => str_pad('3040502020199', 19, '0', STR_PAD_RIGHT),
-                    'YHZCBS' => '0',
-                    'XMJE'   => 3200.00,
-                    'SL'     => '0.09',
+                    'XMDJ'   => 0.01,
+                    'SPBM'   => str_pad($this->_config['data']['SPBM'], 19, '0', STR_PAD_RIGHT),
+                    'YHZCBS' => $this->_config['data']['YHZCBS'],
+                    'XMJE'   => 0.01,
+                    'SL'     => $this->_config['data']['SL'],
                 ],
             ];
 

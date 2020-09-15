@@ -15,7 +15,10 @@ return [
         'DSPTBM' => 'aaaaaaaa',
         'NSRSBH' => 'bbbbbbbb',
         'NSRMC'  => 'ccccccccc',
+        'SPBM'   => 'eeeeeeeee',
+        'YHZCBS' => 1,
+        'SL'     => 0.06,
 
-    ]
+    ],
 
 ];
