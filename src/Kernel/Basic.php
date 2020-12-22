@@ -138,15 +138,15 @@ class Basic {
     }
 
     protected function _encrypt($xml, $key) {
-        return openssl_encrypt($xml, 'des-ede3', $key);
+        return openssl_encrypt($xml, 'DES-EDE3', $key);
     }
 
     protected function _decrypt($xml = [], $key) {
         $content = "";
         if ($xml['Data']['dataDescription']['zipCode'] == 0) {
-            $content = mcrypt_decrypt(MCRYPT_TripleDES, $key, base64_decode($xml['Data']['content']), 'ecb');
+            $content = openssl_decrypt(base64_decode($xml['Data']['content']), 'DES-EDE3', $key);
         } else {
-            $content = mcrypt_decrypt(MCRYPT_TripleDES, $key, zlib_decode(base64_decode($xml['Data']['content'])), 'ecb');
+            $content = openssl_decrypt(zlib_decode(base64_decode($xml['Data']['content'])), 'DES-EDE3', $key);
         }
         if ($content) {
             // 控制字符
